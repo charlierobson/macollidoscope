@@ -191,7 +191,7 @@ public:
                 
             /* get radom point within seleciton as center of the particle */
             vec2 centrePoint;
-            const int randomChunkIndex = ci::Rand::randInt(mSelection.getStart(), mSelection.getEnd() );
+            const int randomChunkIndex = ci::Rand::randInt((int)mSelection.getStart(), (int)mSelection.getEnd() );
 
             centrePoint.x = di.flipX( 1 + (randomChunkIndex * (2 + Chunk::kWidth)) + Chunk::kWidth / 2 );
             centrePoint.y = di.flipY( di.audioToHeigt(0.0) );

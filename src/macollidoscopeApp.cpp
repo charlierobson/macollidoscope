@@ -253,7 +253,7 @@ void CollidoscopeApp::update()
             switch ( trigger.cmd ){
                     
                 case Command::TRIGGER_UPDATE: {
-                    mWaves[i]->setCursorPos( nodeID, mWaves[i]->getSelection().getStart(), *mDrawInfos[i] );
+                    mWaves[i]->setCursorPos( nodeID, int(mWaves[i]->getSelection().getStart()), *mDrawInfos[i] );
                 };
                     break;
                     
@@ -282,7 +282,7 @@ void CollidoscopeApp::update()
         // one oscilloscope sample
         
         for ( size_t j = 0; j < mOscilloscopes[i]->getNumPoints(); j++ ){
-            mOscilloscopes[i]->setPoint( j, audioOutBuffer.getData()[j], *mDrawInfos[i] );
+            mOscilloscopes[i]->setPoint( int(j), audioOutBuffer.getData()[j], *mDrawInfos[i] );
         }
     }
     

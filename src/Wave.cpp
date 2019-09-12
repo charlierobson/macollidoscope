@@ -90,7 +90,7 @@ void Wave::update( double secondsPerChunk, const DrawInfo& di ) {
         // A chunk of audio corresponds to a certain time lenght of audio, according to sample rate.
         // Use elapsed time to advance through chunks so that the cursor is animated. 
         // So it goes from start to end of the selection in the time span of the grain 
-        itr->second.pos = mSelection.getStart() + int( elapsed / secondsPerChunk );
+        itr->second.pos = int(mSelection.getStart() + int( elapsed / secondsPerChunk ));
 
         // check we don't go too far off 
         if (itr->second.pos > mSelection.getEnd()){

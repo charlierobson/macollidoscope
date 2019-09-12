@@ -30,7 +30,7 @@
 
 
 Chunk::Chunk( size_t index ) :
-    mIndex( index ),
+    mIndex( int(index) ),
     mAudioTop(0.0f),
     mAudioBottom(0.0f)
     {}

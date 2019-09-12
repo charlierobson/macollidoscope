@@ -44,7 +44,7 @@ mNumParticles( 0 )
     geom::BufferLayout particleLayout;
     particleLayout.append( geom::Attrib::POSITION, 2, sizeof( vec2 ), 0 );
 
-    auto mesh = gl::VboMesh::create( mParticlePositions.size(), GL_POINTS, { { particleLayout, mParticleVbo } } );
+    auto mesh = gl::VboMesh::create( int(mParticlePositions.size()), GL_POINTS, { { particleLayout, mParticleVbo } } );
 
     // creates glsl program to run the batch with 
 #if ! defined( CINDER_GL_ES )
@@ -134,12 +134,12 @@ void ParticleController::addParticles(int amount, const vec2 &initialLocation, c
 {
     // reduce the particles linearly to the total number of particles already present 
     // the more particles aleary present the less particle are added
-    int reduction = ci::lmap<int>(mNumParticles, 0, kMaxParticles, 0, kMaxParticleAdd);
+    int reduction = ci::lmap<int>(int(mNumParticles), 0, kMaxParticles, 0, kMaxParticleAdd);
     amount -= reduction;
 
     if ( mNumParticles + amount > kMaxParticles ){
 		//a.k.a. return if reached kMaxParticles 
-        amount = kMaxParticles - mNumParticles;
+        amount = int(kMaxParticles - mNumParticles);
 	}
 
     if( amount <= 0 )

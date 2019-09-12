@@ -34,7 +34,7 @@ struct RandomGenerator
     {}
 
     size_t operator()() const {
-        return ci::Rand::randUint( mMax );
+        return ci::Rand::randUint( int(mMax) );
     }
 
     size_t mMax;
@@ -72,7 +72,7 @@ void PGranularNode::initialize()
 
     /* create the PGranular object for notes */
     for ( size_t i = 0; i < kMaxVoices; i++ ){
-        mPGranularNotes[i].reset( new collidoscope::PGranular<float, RandomGenerator, PGranularNode>( mGrainBuffer->getData(), mGrainBuffer->getNumFrames(), getSampleRate(), *mRandomOffset, *this, i ) );
+        mPGranularNotes[i].reset( new collidoscope::PGranular<float, RandomGenerator, PGranularNode>( mGrainBuffer->getData(), mGrainBuffer->getNumFrames(), getSampleRate(), *mRandomOffset, *this, int(i)) );
     }
 
 }
