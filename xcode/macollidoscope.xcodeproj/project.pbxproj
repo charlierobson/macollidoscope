@@ -19,6 +19,7 @@
 		1D6B0558DABE40B0893689FE /* macollidoscopeApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6B410BD720B4ADE811991B6 /* macollidoscopeApp.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		CBF375D3232A6265005B14EA /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF375D2232A6265005B14EA /* CoreMIDI.framework */; };
 		E65C1B3900F84E23836CD3FE /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E1A7614F54404876F5634 /* CinderApp.icns */; };
 		F24E0338232A520400305115 /* RtMidi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F24E032D232A520400305115 /* RtMidi.cpp */; };
 		F24E0339232A520400305115 /* Wave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F24E032E232A520400305115 /* Wave.cpp */; };
@@ -52,6 +53,7 @@
 		8D1107320486CEB800E47090 /* macollidoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macollidoscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B410BD720B4ADE811991B6 /* macollidoscopeApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = macollidoscopeApp.cpp; path = ../src/macollidoscopeApp.cpp; sourceTree = "<group>"; };
 		C005853BE4D64501A415B161 /* macollidoscope_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = macollidoscope_Prefix.pch; sourceTree = "<group>"; };
+		CBF375D2232A6265005B14EA /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		F24E031D232A51F500305115 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Config.h; path = ../include/Config.h; sourceTree = "<group>"; };
 		F24E031E232A51F500305115 /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wave.h; path = ../include/Wave.h; sourceTree = "<group>"; };
 		F24E031F232A51F500305115 /* Oscilloscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Oscilloscope.h; path = ../include/Oscilloscope.h; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBF375D3232A6265005B14EA /* CoreMIDI.framework in Frameworks */,
 				006D720419952D00008149E2 /* AVFoundation.framework in Frameworks */,
 				006D720519952D00008149E2 /* CoreMedia.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
@@ -212,6 +215,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CBF375D2232A6265005B14EA /* CoreMIDI.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -316,6 +320,7 @@
 					"DEBUG=1",
 					"USE_PARTICLES=1",
 					"NUM_WAVES=1",
+					__MACOSX_CORE__,
 					OBJC_SILENCE_GC_DEPRECATIONS,
 					"$(inherited)",
 				);
@@ -347,6 +352,7 @@
 					"NDEBUG=1",
 					"USE_PARTICLES=1",
 					"NUM_WAVES=1",
+					__MACOSX_CORE__,
 					OBJC_SILENCE_GC_DEPRECATIONS,
 					"$(inherited)",
 				);

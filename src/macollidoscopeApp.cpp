@@ -346,12 +346,10 @@ void CollidoscopeApp::receiveCommands()
         if ( m.getVoice() == collidoscope::MIDIMessage::Voice::eNoteOn ){
             int midiNote = m.getData_1();
             mAudioEngine.noteOn( waveIdx, midiNote );
-            console() << "on " << midiNote << std::endl;
         }
         else if ( m.getVoice() == collidoscope::MIDIMessage::Voice::eNoteOff ){
             int midiNote = m.getData_1();
             mAudioEngine.noteOff( waveIdx, midiNote );
-            console() << "off " << midiNote << std::endl;
         }
         else if ( m.getVoice() == collidoscope::MIDIMessage::Voice::ePitchBend ){
             const uint16_t MSB = m.getData_2() << 7;
@@ -395,10 +393,10 @@ void CollidoscopeApp::receiveCommands()
                 };
                     break;
                     
-                case 4: { // loop on off
+                case 53: { // loop on off
                     unsigned char midiVal = m.getData_2();
                     
-                    if ( midiVal > 0 )
+                    if ( midiVal > 63 )
                         mAudioEngine.loopOn( waveIdx );
                     else
                         mAudioEngine.loopOff( waveIdx );
