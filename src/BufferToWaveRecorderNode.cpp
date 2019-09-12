@@ -55,7 +55,7 @@
 
 namespace {
     
-const size_t DEFAULT_RECORD_BUFFER_FRAMES = 44100;
+//const size_t DEFAULT_RECORD_BUFFER_FRAMES = 44100;
 
 void resizeBufferAndShuffleChannels(ci::audio::BufferDynamic *buffer, size_t resultNumFrames)
 {

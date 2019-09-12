@@ -16,21 +16,20 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		00B9955A1B128DF400A5C623 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995581B128DF400A5C623 /* IOKit.framework */; };
 		00B9955B1B128DF400A5C623 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995591B128DF400A5C623 /* IOSurface.framework */; };
+		1D6B0558DABE40B0893689FE /* macollidoscopeApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6B410BD720B4ADE811991B6 /* macollidoscopeApp.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
-		832EE72E23F847B39C069246 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = C8C5C1B1FDF746F6AE893955 /* CinderApp.icns */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		CBF375B423298CC6005B14EA /* Chunk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF375AA23298CC6005B14EA /* Chunk.cpp */; };
-		CBF375B523298CC6005B14EA /* AudioEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF375AB23298CC6005B14EA /* AudioEngine.cpp */; };
-		CBF375B623298CC6005B14EA /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF375AC23298CC6005B14EA /* Config.cpp */; };
-		CBF375B723298CC6005B14EA /* BufferToWaveRecorderNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF375AD23298CC6005B14EA /* BufferToWaveRecorderNode.cpp */; };
-		CBF375B823298CC6005B14EA /* ParticleController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF375AE23298CC6005B14EA /* ParticleController.cpp */; };
-		CBF375B923298CC6005B14EA /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF375AF23298CC6005B14EA /* Log.cpp */; };
-		CBF375BA23298CC6005B14EA /* RtMidi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF375B023298CC6005B14EA /* RtMidi.cpp */; };
-		CBF375BB23298CC6005B14EA /* MIDI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF375B123298CC6005B14EA /* MIDI.cpp */; };
-		CBF375BC23298CC6005B14EA /* PGranularNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF375B223298CC6005B14EA /* PGranularNode.cpp */; };
-		CBF375BD23298CC6005B14EA /* Wave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF375B323298CC6005B14EA /* Wave.cpp */; };
-		CBF375CF23298DAB005B14EA /* CollidoscopeApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBF375CE23298DAB005B14EA /* CollidoscopeApp.cpp */; };
-		CBF375D123299866005B14EA /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF375D023299866005B14EA /* CoreMIDI.framework */; };
+		E65C1B3900F84E23836CD3FE /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7E4E1A7614F54404876F5634 /* CinderApp.icns */; };
+		F24E0338232A520400305115 /* RtMidi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F24E032D232A520400305115 /* RtMidi.cpp */; };
+		F24E0339232A520400305115 /* Wave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F24E032E232A520400305115 /* Wave.cpp */; };
+		F24E033A232A520400305115 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F24E032F232A520400305115 /* Log.cpp */; };
+		F24E033C232A520400305115 /* ParticleController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F24E0331232A520400305115 /* ParticleController.cpp */; };
+		F24E033D232A520400305115 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F24E0332232A520400305115 /* Config.cpp */; };
+		F24E033E232A520400305115 /* BufferToWaveRecorderNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F24E0333232A520400305115 /* BufferToWaveRecorderNode.cpp */; };
+		F24E033F232A520400305115 /* AudioEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F24E0334232A520400305115 /* AudioEngine.cpp */; };
+		F24E0340232A520400305115 /* MIDI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F24E0335232A520400305115 /* MIDI.cpp */; };
+		F24E0341232A520400305115 /* PGranularNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F24E0336232A520400305115 /* PGranularNode.cpp */; };
+		F24E0342232A520400305115 /* Chunk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F24E0337232A520400305115 /* Chunk.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,40 +45,39 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		3D9D9BE0625142DF97683A91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		505D691A8C9F4BDC83F8BC05 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
-		5D53627C3DB548318F324A9C /* Collidoscope_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Collidoscope_Prefix.pch; sourceTree = "<group>"; };
-		7DF3707450D94912BA2DD657 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* Collidoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collidoscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8C5C1B1FDF746F6AE893955 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
-		CBF375AA23298CC6005B14EA /* Chunk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Chunk.cpp; path = ../src/Chunk.cpp; sourceTree = "<group>"; };
-		CBF375AB23298CC6005B14EA /* AudioEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioEngine.cpp; path = ../src/AudioEngine.cpp; sourceTree = "<group>"; };
-		CBF375AC23298CC6005B14EA /* Config.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Config.cpp; path = ../src/Config.cpp; sourceTree = "<group>"; };
-		CBF375AD23298CC6005B14EA /* BufferToWaveRecorderNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BufferToWaveRecorderNode.cpp; path = ../src/BufferToWaveRecorderNode.cpp; sourceTree = "<group>"; };
-		CBF375AE23298CC6005B14EA /* ParticleController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleController.cpp; path = ../src/ParticleController.cpp; sourceTree = "<group>"; };
-		CBF375AF23298CC6005B14EA /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Log.cpp; path = ../src/Log.cpp; sourceTree = "<group>"; };
-		CBF375B023298CC6005B14EA /* RtMidi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RtMidi.cpp; path = ../src/RtMidi.cpp; sourceTree = "<group>"; };
-		CBF375B123298CC6005B14EA /* MIDI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MIDI.cpp; path = ../src/MIDI.cpp; sourceTree = "<group>"; };
-		CBF375B223298CC6005B14EA /* PGranularNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PGranularNode.cpp; path = ../src/PGranularNode.cpp; sourceTree = "<group>"; };
-		CBF375B323298CC6005B14EA /* Wave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Wave.cpp; path = ../src/Wave.cpp; sourceTree = "<group>"; };
-		CBF375BE23298CEE005B14EA /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = ../include/Log.h; sourceTree = "<group>"; };
-		CBF375BF23298CEE005B14EA /* DrawInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawInfo.h; path = ../include/DrawInfo.h; sourceTree = "<group>"; };
-		CBF375C023298CEE005B14EA /* RingBufferPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingBufferPack.h; path = ../include/RingBufferPack.h; sourceTree = "<group>"; };
-		CBF375C123298CEE005B14EA /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messages.h; path = ../include/Messages.h; sourceTree = "<group>"; };
-		CBF375C223298CEF005B14EA /* PGranular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGranular.h; path = ../include/PGranular.h; sourceTree = "<group>"; };
-		CBF375C323298CEF005B14EA /* MIDI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIDI.h; path = ../include/MIDI.h; sourceTree = "<group>"; };
-		CBF375C423298CEF005B14EA /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wave.h; path = ../include/Wave.h; sourceTree = "<group>"; };
-		CBF375C523298CEF005B14EA /* Oscilloscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Oscilloscope.h; path = ../include/Oscilloscope.h; sourceTree = "<group>"; };
-		CBF375C623298CEF005B14EA /* AudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioEngine.h; path = ../include/AudioEngine.h; sourceTree = "<group>"; };
-		CBF375C723298CEF005B14EA /* RtMidi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RtMidi.h; path = ../include/RtMidi.h; sourceTree = "<group>"; };
-		CBF375C823298CEF005B14EA /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chunk.h; path = ../include/Chunk.h; sourceTree = "<group>"; };
-		CBF375C923298CEF005B14EA /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Config.h; path = ../include/Config.h; sourceTree = "<group>"; };
-		CBF375CA23298CEF005B14EA /* ParticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleController.h; path = ../include/ParticleController.h; sourceTree = "<group>"; };
-		CBF375CB23298CEF005B14EA /* EnvASR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnvASR.h; path = ../include/EnvASR.h; sourceTree = "<group>"; };
-		CBF375CC23298CEF005B14EA /* BufferToWaveRecorderNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BufferToWaveRecorderNode.h; path = ../include/BufferToWaveRecorderNode.h; sourceTree = "<group>"; };
-		CBF375CD23298CEF005B14EA /* PGranularNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGranularNode.h; path = ../include/PGranularNode.h; sourceTree = "<group>"; };
-		CBF375CE23298DAB005B14EA /* CollidoscopeApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CollidoscopeApp.cpp; path = ../src/CollidoscopeApp.cpp; sourceTree = "<group>"; };
-		CBF375D023299866005B14EA /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		539FA841159046858C08EDD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E4E1A7614F54404876F5634 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* macollidoscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macollidoscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6B410BD720B4ADE811991B6 /* macollidoscopeApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = macollidoscopeApp.cpp; path = ../src/macollidoscopeApp.cpp; sourceTree = "<group>"; };
+		C005853BE4D64501A415B161 /* macollidoscope_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = macollidoscope_Prefix.pch; sourceTree = "<group>"; };
+		F24E031D232A51F500305115 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Config.h; path = ../include/Config.h; sourceTree = "<group>"; };
+		F24E031E232A51F500305115 /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wave.h; path = ../include/Wave.h; sourceTree = "<group>"; };
+		F24E031F232A51F500305115 /* Oscilloscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Oscilloscope.h; path = ../include/Oscilloscope.h; sourceTree = "<group>"; };
+		F24E0320232A51F500305115 /* AudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioEngine.h; path = ../include/AudioEngine.h; sourceTree = "<group>"; };
+		F24E0321232A51F500305115 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chunk.h; path = ../include/Chunk.h; sourceTree = "<group>"; };
+		F24E0322232A51F500305115 /* BufferToWaveRecorderNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BufferToWaveRecorderNode.h; path = ../include/BufferToWaveRecorderNode.h; sourceTree = "<group>"; };
+		F24E0323232A51F500305115 /* RingBufferPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingBufferPack.h; path = ../include/RingBufferPack.h; sourceTree = "<group>"; };
+		F24E0324232A51F500305115 /* DrawInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawInfo.h; path = ../include/DrawInfo.h; sourceTree = "<group>"; };
+		F24E0325232A51F500305115 /* ParticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleController.h; path = ../include/ParticleController.h; sourceTree = "<group>"; };
+		F24E0326232A51F500305115 /* EnvASR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnvASR.h; path = ../include/EnvASR.h; sourceTree = "<group>"; };
+		F24E0327232A51F500305115 /* PGranular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGranular.h; path = ../include/PGranular.h; sourceTree = "<group>"; };
+		F24E0328232A51F500305115 /* MIDI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIDI.h; path = ../include/MIDI.h; sourceTree = "<group>"; };
+		F24E0329232A51F500305115 /* PGranularNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGranularNode.h; path = ../include/PGranularNode.h; sourceTree = "<group>"; };
+		F24E032A232A51F500305115 /* RtMidi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RtMidi.h; path = ../include/RtMidi.h; sourceTree = "<group>"; };
+		F24E032B232A51F500305115 /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messages.h; path = ../include/Messages.h; sourceTree = "<group>"; };
+		F24E032C232A51F500305115 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = ../include/Log.h; sourceTree = "<group>"; };
+		F24E032D232A520400305115 /* RtMidi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RtMidi.cpp; path = ../src/RtMidi.cpp; sourceTree = "<group>"; };
+		F24E032E232A520400305115 /* Wave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Wave.cpp; path = ../src/Wave.cpp; sourceTree = "<group>"; };
+		F24E032F232A520400305115 /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Log.cpp; path = ../src/Log.cpp; sourceTree = "<group>"; };
+		F24E0331232A520400305115 /* ParticleController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleController.cpp; path = ../src/ParticleController.cpp; sourceTree = "<group>"; };
+		F24E0332232A520400305115 /* Config.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Config.cpp; path = ../src/Config.cpp; sourceTree = "<group>"; };
+		F24E0333232A520400305115 /* BufferToWaveRecorderNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BufferToWaveRecorderNode.cpp; path = ../src/BufferToWaveRecorderNode.cpp; sourceTree = "<group>"; };
+		F24E0334232A520400305115 /* AudioEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioEngine.cpp; path = ../src/AudioEngine.cpp; sourceTree = "<group>"; };
+		F24E0335232A520400305115 /* MIDI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MIDI.cpp; path = ../src/MIDI.cpp; sourceTree = "<group>"; };
+		F24E0336232A520400305115 /* PGranularNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PGranularNode.cpp; path = ../src/PGranularNode.cpp; sourceTree = "<group>"; };
+		F24E0337232A520400305115 /* Chunk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Chunk.cpp; path = ../src/Chunk.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBF375D123299866005B14EA /* CoreMIDI.framework in Frameworks */,
 				006D720419952D00008149E2 /* AVFoundation.framework in Frameworks */,
 				006D720519952D00008149E2 /* CoreMedia.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
@@ -115,17 +112,17 @@
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				CBF375AB23298CC6005B14EA /* AudioEngine.cpp */,
-				CBF375AD23298CC6005B14EA /* BufferToWaveRecorderNode.cpp */,
-				CBF375AA23298CC6005B14EA /* Chunk.cpp */,
-				CBF375AC23298CC6005B14EA /* Config.cpp */,
-				CBF375CE23298DAB005B14EA /* CollidoscopeApp.cpp */,
-				CBF375AF23298CC6005B14EA /* Log.cpp */,
-				CBF375B123298CC6005B14EA /* MIDI.cpp */,
-				CBF375AE23298CC6005B14EA /* ParticleController.cpp */,
-				CBF375B223298CC6005B14EA /* PGranularNode.cpp */,
-				CBF375B023298CC6005B14EA /* RtMidi.cpp */,
-				CBF375B323298CC6005B14EA /* Wave.cpp */,
+				F24E0334232A520400305115 /* AudioEngine.cpp */,
+				F24E0333232A520400305115 /* BufferToWaveRecorderNode.cpp */,
+				F24E0337232A520400305115 /* Chunk.cpp */,
+				F24E0332232A520400305115 /* Config.cpp */,
+				F24E032F232A520400305115 /* Log.cpp */,
+				F24E0335232A520400305115 /* MIDI.cpp */,
+				F24E0331232A520400305115 /* ParticleController.cpp */,
+				F24E0336232A520400305115 /* PGranularNode.cpp */,
+				F24E032D232A520400305115 /* RtMidi.cpp */,
+				F24E032E232A520400305115 /* Wave.cpp */,
+				A6B410BD720B4ADE811991B6 /* macollidoscopeApp.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -160,12 +157,12 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* Collidoscope.app */,
+				8D1107320486CEB800E47090 /* macollidoscope.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* Collidoscope */ = {
+		29B97314FDCFA39411CA2CEA /* macollidoscope */ = {
 			isa = PBXGroup;
 			children = (
 				01B97315FEAEA392516A2CEA /* Blocks */,
@@ -175,30 +172,30 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
-			name = Collidoscope;
+			name = macollidoscope;
 			sourceTree = "<group>";
 		};
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				CBF375C623298CEF005B14EA /* AudioEngine.h */,
-				CBF375CC23298CEF005B14EA /* BufferToWaveRecorderNode.h */,
-				CBF375C823298CEF005B14EA /* Chunk.h */,
-				CBF375C923298CEF005B14EA /* Config.h */,
-				CBF375BF23298CEE005B14EA /* DrawInfo.h */,
-				CBF375CB23298CEF005B14EA /* EnvASR.h */,
-				CBF375BE23298CEE005B14EA /* Log.h */,
-				CBF375C123298CEE005B14EA /* Messages.h */,
-				CBF375C323298CEF005B14EA /* MIDI.h */,
-				CBF375C523298CEF005B14EA /* Oscilloscope.h */,
-				CBF375CA23298CEF005B14EA /* ParticleController.h */,
-				CBF375C223298CEF005B14EA /* PGranular.h */,
-				CBF375CD23298CEF005B14EA /* PGranularNode.h */,
-				CBF375C023298CEE005B14EA /* RingBufferPack.h */,
-				CBF375C723298CEF005B14EA /* RtMidi.h */,
-				CBF375C423298CEF005B14EA /* Wave.h */,
-				7DF3707450D94912BA2DD657 /* Resources.h */,
-				5D53627C3DB548318F324A9C /* Collidoscope_Prefix.pch */,
+				F24E0320232A51F500305115 /* AudioEngine.h */,
+				F24E0322232A51F500305115 /* BufferToWaveRecorderNode.h */,
+				F24E0321232A51F500305115 /* Chunk.h */,
+				F24E031D232A51F500305115 /* Config.h */,
+				F24E0324232A51F500305115 /* DrawInfo.h */,
+				F24E0326232A51F500305115 /* EnvASR.h */,
+				F24E032C232A51F500305115 /* Log.h */,
+				F24E032B232A51F500305115 /* Messages.h */,
+				F24E0328232A51F500305115 /* MIDI.h */,
+				F24E031F232A51F500305115 /* Oscilloscope.h */,
+				F24E0325232A51F500305115 /* ParticleController.h */,
+				F24E0327232A51F500305115 /* PGranular.h */,
+				F24E0329232A51F500305115 /* PGranularNode.h */,
+				F24E0323232A51F500305115 /* RingBufferPack.h */,
+				F24E032A232A51F500305115 /* RtMidi.h */,
+				F24E031E232A51F500305115 /* Wave.h */,
+				505D691A8C9F4BDC83F8BC05 /* Resources.h */,
+				C005853BE4D64501A415B161 /* macollidoscope_Prefix.pch */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -206,8 +203,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C8C5C1B1FDF746F6AE893955 /* CinderApp.icns */,
-				3D9D9BE0625142DF97683A91 /* Info.plist */,
+				7E4E1A7614F54404876F5634 /* CinderApp.icns */,
+				539FA841159046858C08EDD3 /* Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -215,7 +212,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CBF375D023299866005B14EA /* CoreMIDI.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -225,9 +221,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* Collidoscope */ = {
+		8D1107260486CEB800E47090 /* macollidoscope */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Collidoscope" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "macollidoscope" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -237,10 +233,10 @@
 			);
 			dependencies = (
 			);
-			name = Collidoscope;
+			name = macollidoscope;
 			productInstallPath = "$(HOME)/Applications";
-			productName = Collidoscope;
-			productReference = 8D1107320486CEB800E47090 /* Collidoscope.app */;
+			productName = macollidoscope;
+			productReference = 8D1107320486CEB800E47090 /* macollidoscope.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -250,21 +246,21 @@
 			isa = PBXProject;
 			attributes = {
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Collidoscope" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "macollidoscope" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				de,
+				ja,
+				en,
+				fr,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* Collidoscope */;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* macollidoscope */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* Collidoscope */,
+				8D1107260486CEB800E47090 /* macollidoscope */,
 			);
 		};
 /* End PBXProject section */
@@ -274,7 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				832EE72E23F847B39C069246 /* CinderApp.icns in Resources */,
+				E65C1B3900F84E23836CD3FE /* CinderApp.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,17 +281,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBF375CF23298DAB005B14EA /* CollidoscopeApp.cpp in Sources */,
-				CBF375BA23298CC6005B14EA /* RtMidi.cpp in Sources */,
-				CBF375B923298CC6005B14EA /* Log.cpp in Sources */,
-				CBF375B823298CC6005B14EA /* ParticleController.cpp in Sources */,
-				CBF375B623298CC6005B14EA /* Config.cpp in Sources */,
-				CBF375BD23298CC6005B14EA /* Wave.cpp in Sources */,
-				CBF375BB23298CC6005B14EA /* MIDI.cpp in Sources */,
-				CBF375BC23298CC6005B14EA /* PGranularNode.cpp in Sources */,
-				CBF375B723298CC6005B14EA /* BufferToWaveRecorderNode.cpp in Sources */,
-				CBF375B523298CC6005B14EA /* AudioEngine.cpp in Sources */,
-				CBF375B423298CC6005B14EA /* Chunk.cpp in Sources */,
+				F24E0339232A520400305115 /* Wave.cpp in Sources */,
+				F24E033E232A520400305115 /* BufferToWaveRecorderNode.cpp in Sources */,
+				F24E0338232A520400305115 /* RtMidi.cpp in Sources */,
+				F24E0341232A520400305115 /* PGranularNode.cpp in Sources */,
+				F24E0340232A520400305115 /* MIDI.cpp in Sources */,
+				F24E033C232A520400305115 /* ParticleController.cpp in Sources */,
+				F24E0342232A520400305115 /* Chunk.cpp in Sources */,
+				F24E033F232A520400305115 /* AudioEngine.cpp in Sources */,
+				F24E033A232A520400305115 /* Log.cpp in Sources */,
+				1D6B0558DABE40B0893689FE /* macollidoscopeApp.cpp in Sources */,
+				F24E033D232A520400305115 /* Config.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,12 +308,11 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Collidoscope_Prefix.pch;
+				GCC_PREFIX_HEADER = macollidoscope_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
-					"NUM_WAVES=1",
 					"USE_PARTICLES=1",
-					__MACOSX_CORE__,
+					"NUM_WAVES=1",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -325,7 +320,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder_d.a\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libcinder.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Collidoscope;
+				PRODUCT_NAME = macollidoscope;
 				SYMROOT = ./build;
 				WRAPPER_EXTENSION = app;
 			};
@@ -342,12 +337,11 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Collidoscope_Prefix.pch;
+				GCC_PREFIX_HEADER = macollidoscope_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"NDEBUG=1",
-					"NUM_WAVES=1",
 					"USE_PARTICLES=1",
-					__MACOSX_CORE__,
+					"NUM_WAVES=1",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -355,7 +349,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder.a\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libcinder.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Collidoscope;
+				PRODUCT_NAME = macollidoscope;
 				STRIP_INSTALLED_PRODUCT = YES;
 				SYMROOT = ./build;
 				WRAPPER_EXTENSION = app;
@@ -399,7 +393,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Collidoscope" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "macollidoscope" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
@@ -408,7 +402,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Collidoscope" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "macollidoscope" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
