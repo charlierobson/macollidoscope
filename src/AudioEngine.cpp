@@ -106,7 +106,6 @@ void AudioEngine::setup(const Config& config)
         // and from one channel route to one channel buffer recorder 
         inputDeviceNode >> mInputRouterNodes[chan]->route( chan, 0, 1 ) >> mBufferRecorderNodes[chan];
 
-
         // create PGranular loops passing the buffer of the RecorderNode as argument to the contructor 
         // use -1 as ID as the loop corresponds to no midi note 
         mPGranularNodes[chan] = ctx->makeNode( new PGranularNode( mBufferRecorderNodes[chan]->getRecorderBuffer(), mCursorTriggerRingBufferPacks[chan]->getBuffer() ) );
@@ -115,8 +114,15 @@ void AudioEngine::setup(const Config& config)
         mLowPassFilterNodes[chan] = ctx->makeNode( new FilterLowPassNode( MonitorNode::Format().channels( 1 ) ) );
         mLowPassFilterNodes[chan]->setCutoffFreq( config.getMaxFilterCutoffFreq() );
         mLowPassFilterNodes[chan]->setQ( 0.707f );
-        // create monitor nodes for oscilloscopes 
+
+//        mBandPassFilterNodes[chan] = ctx->makeNode( new FilterBandPassNode( MonitorNode::Format().channels( 1 ) ) );
+//        mBandPassFilterNodes[chan]->setCenterFreq( config.getMaxFilterCutoffFreq() );
+//        mBandPassFilterNodes[chan]->setWidth( 50 );
+//        mBandPassFilterNodes[chan]->setQ( 0.707f );
+
+        // create monitor nodes for oscilloscopes
         mOutputMonitorNodes[chan] = ctx->makeNode( new MonitorNode( MonitorNode::Format().channels( 1 ) ) );
+        mGainNodes[chan] = ctx->makeNode( new GainNode( MonitorNode::Format().channels( 1 ) ) );
 
         // all output goes to the filter 
         mPGranularNodes[chan] >> mLowPassFilterNodes[chan];
@@ -124,11 +130,10 @@ void AudioEngine::setup(const Config& config)
         mOutputRouterNodes[chan] = ctx->makeNode( new ChannelRouterNode( Node::Format().channels( 2 ) ) );
 
         // filter goes to output 
-        mLowPassFilterNodes[chan] >> mOutputRouterNodes[chan]->route( 0, chan, 1 ) >> ctx->getOutput();
+        mLowPassFilterNodes[chan] >> mGainNodes[chan] >> mOutputRouterNodes[chan]->route( 0, chan, 1 ) >> ctx->getOutput();
         
         // what goes to output goes to oscilloscope as well
         mLowPassFilterNodes[chan] >> mOutputMonitorNodes[chan];
-
     }
 
     ctx->getOutput()->enableClipDetection( false );
@@ -194,6 +199,11 @@ void AudioEngine::setGrainDurationCoeff( size_t waveIdx, double coeff )
 void AudioEngine::setFilterCutoff( size_t waveIdx, double cutoff )
 {
     mLowPassFilterNodes[waveIdx]->setCutoffFreq( cutoff );
+}
+
+void AudioEngine::setGain( size_t waveIdx, double cutoff )
+{
+    mGainNodes[waveIdx]->setValue( cutoff );
 }
 
 // ------------------------------------------------------

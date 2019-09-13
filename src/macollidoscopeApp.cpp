@@ -426,7 +426,12 @@ void CollidoscopeApp::receiveCommands()
                 };
                     break;
                     
-                    
+                case 57: { // gain
+                    const double midiVal = m.getData_2(); // 0-127
+                    const float alpha = ci::lmap<double>( midiVal, 0.0f, 127.0f, 0.25f, 4.f );
+                    mAudioEngine.setGain( waveIdx, alpha );
+                };
+                    break;
                     
             }
         }

@@ -27,6 +27,7 @@
 #include "cinder/audio/ChannelRouterNode.h"
 #include "cinder/audio/MonitorNode.h"
 #include "cinder/audio/FilterNode.h"
+#include "cinder/audio/GainNode.h"
 #include "BufferToWaveRecorderNode.h"
 #include "PGranularNode.h"
 #include "RingBufferPack.h"
@@ -90,6 +91,8 @@ public:
 
     void setFilterCutoff( size_t waveIdx, double cutoff );
 
+    void setGain( size_t waveIdx, double cutoff );
+
     void checkCursorTriggers( size_t waveIdx, std::vector<CursorTriggerMsg>& cursorTriggers );
 
     /**
@@ -109,12 +112,13 @@ private:
     // pgranulars wrapped in a Cinder::Node 
     std::array< PGranularNodeRef, NUM_WAVES > mPGranularNodes;
 
-
+    std::array< ci::audio::GainNodeRef, NUM_WAVES > mGainNodes;
     std::array< ci::audio::ChannelRouterNodeRef, NUM_WAVES > mOutputRouterNodes;
     // nodes to get the audio buffer scoped in the oscilloscope 
     std::array< ci::audio::MonitorNodeRef, NUM_WAVES > mOutputMonitorNodes;
     // nodes for lowpass filtering
     std::array< cinder::audio::FilterLowPassNodeRef, NUM_WAVES> mLowPassFilterNodes;
+//    std::array< cinder::audio::FilterBandPassNodeRef, NUM_WAVES> mBandPassFilterNodes;
 
     std::array< std::unique_ptr< RingBufferPack<CursorTriggerMsg> >, NUM_WAVES > mCursorTriggerRingBufferPacks;
 
