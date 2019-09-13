@@ -50,6 +50,7 @@ public:
     
     /** Receives MIDI command messages from MIDI thread */
     void receiveCommands();
+
     /** Prints command line usage */
     void usage();
     
@@ -73,7 +74,6 @@ public:
     double mSecondsPerChunk;
     
     ~CollidoscopeApp();
-    
 };
 
 
@@ -215,6 +215,16 @@ void CollidoscopeApp::keyDown( KeyEvent event )
             
             mAudioEngine.setGrainDurationCoeff( waveIdx, c );
             mWaves[waveIdx]->getSelection().setParticleSpread( float( c ) );
+        }; break;
+
+        case 'm':
+        {
+            mAudioEngine.setFilterType( waveIdx, (mAudioEngine.getFilterType()+1) % 4 );
+        }; break;
+
+        case 'n':
+        {
+            mAudioEngine.setFilterType( waveIdx, (mAudioEngine.getFilterType()+4-1) % 4 );
         }; break;
     }
     

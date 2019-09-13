@@ -91,8 +91,11 @@ public:
 
     void setFilterCutoff( size_t waveIdx, double cutoff );
 
+    void setFilterType( size_t waveIdx, int type );
+    int getFilterType() { return mFilterType; }
+    
     void setGain( size_t waveIdx, double cutoff );
-
+    
     void checkCursorTriggers( size_t waveIdx, std::vector<CursorTriggerMsg>& cursorTriggers );
 
     /**
@@ -101,9 +104,19 @@ public:
      */
     const ci::audio::Buffer& getAudioOutputBuffer( size_t waveIdx ) const;
 
+    int mFilterType;
+    cinder::audio::FilterBiquadNode::Mode mFilterTypes[4]= {
+        cinder::audio::FilterBiquadNode::Mode::LOWPASS,
+        cinder::audio::FilterBiquadNode::Mode::HIGHPASS,
+        cinder::audio::FilterBiquadNode::Mode::BANDPASS,
+        cinder::audio::FilterBiquadNode::Mode::NOTCH
+    };
+    
+    int mQMul[4] = {
+        100, 100, 200, 200
+    };
 
 private:
-
     // nodes for mic input 
     std::array< ci::audio::ChannelRouterNodeRef, NUM_WAVES > mInputRouterNodes;
     // nodes for recording audio input into buffer. Also sends chunks information through 
