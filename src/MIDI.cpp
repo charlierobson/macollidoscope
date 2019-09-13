@@ -80,6 +80,8 @@ void collidoscope::MIDI::setup( const Config& config )
         try {
             std::unique_ptr< RtMidiIn > input ( new RtMidiIn() );
             input->openPort( portNum, "Collidoscope Input" );
+            // Here we could build a structure that contains the THIS ptr and channel number.
+            // Thus we can tell from which interface the data came...
             input->setCallback( &RtMidiInCallback, this );
             mInputs.push_back( std::move(input) );
 
