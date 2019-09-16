@@ -198,13 +198,7 @@ void AudioEngine::setGrainDurationCoeff( size_t waveIdx, double coeff )
 
 void AudioEngine::setFilterCutoff( size_t waveIdx, double cutoff )
 {
-    mLowPassFilterNodes[waveIdx]->setQ( cutoff * mQMul[mFilterType] );
-}
-
-void AudioEngine::setFilterType( size_t waveIdx, int type )
-{
-    mFilterType = type;
-    mLowPassFilterNodes[waveIdx]->setMode( mFilterTypes[type] );
+    mLowPassFilterNodes[waveIdx]->setQ( cutoff );
 }
 
 void AudioEngine::setGain( size_t waveIdx, double cutoff )

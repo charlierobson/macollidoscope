@@ -216,18 +216,7 @@ void CollidoscopeApp::keyDown( KeyEvent event )
             mAudioEngine.setGrainDurationCoeff( waveIdx, c );
             mWaves[waveIdx]->getSelection().setParticleSpread( float( c ) );
         }; break;
-
-        case 'm':
-        {
-            mAudioEngine.setFilterType( waveIdx, (mAudioEngine.getFilterType()+1) % 4 );
-        }; break;
-
-        case 'n':
-        {
-            mAudioEngine.setFilterType( waveIdx, (mAudioEngine.getFilterType()+4-1) % 4 );
-        }; break;
     }
-    
 }
 
 void CollidoscopeApp::update()
