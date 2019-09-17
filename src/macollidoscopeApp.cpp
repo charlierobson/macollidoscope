@@ -50,7 +50,7 @@ public:
     
     /** Receives MIDI command messages from MIDI thread */
     void receiveCommands();
-
+    
     /** Prints command line usage */
     void usage();
     
@@ -260,7 +260,7 @@ void CollidoscopeApp::update()
                     mWaves[i]->removeCursor( nodeID );
                 };
                     break;
-
+                    
                 default:
                     break;
             }
@@ -332,107 +332,75 @@ void CollidoscopeApp::resize()
 void CollidoscopeApp::receiveCommands()
 {
     // check new midi messages
-    static std::vector<collidoscope::MIDIMessage> midiMessages;
+    static std::vector<Knob*> midiMessages;
     mMIDI.checkMessages( midiMessages );
     
-    
-    for ( auto &m : midiMessages ){
+    for ( auto& m : midiMessages ) {
         
         const size_t waveIdx = 0; //mConfig.getWaveForMIDIChannel( m.getChannel() );
-        if ( waveIdx >= NUM_WAVES )
-            continue;
         
-        if ( m.getVoice() == collidoscope::MIDIMessage::Voice::eNoteOn ){
-            int midiNote = m.getData_1();
-            mAudioEngine.noteOn( waveIdx, midiNote );
-        }
-        else if ( m.getVoice() == collidoscope::MIDIMessage::Voice::eNoteOff ){
-            int midiNote = m.getData_1();
-            mAudioEngine.noteOff( waveIdx, midiNote );
-        }
-        else if ( m.getVoice() == collidoscope::MIDIMessage::Voice::ePitchBend ){
-            const uint16_t MSB = m.getData_2() << 7;
-            uint16_t value = m.getData_1(); // LSB
-            
-            value |= MSB;
-            
-            
-            // value ranges from 0 to 149. check boundaries in case sensor gives bad values
-            if ( value > 149 ){ // FIXME can use wave.size()
-                continue;
-            }
-            
-            size_t startChunk = value;
-            
-            const size_t selectionSizeBeforeStartUpdate = mWaves[waveIdx]->getSelection().getSize();
-            mWaves[waveIdx]->getSelection().setStart( startChunk );
-            
-            mAudioEngine.setSelectionStart( waveIdx, startChunk * (mConfig.getWaveLen() * mAudioEngine.getSampleRate() / mConfig.getNumChunks()) );
-            
-            const size_t newSelectionSize = mWaves[waveIdx]->getSelection().getSize();
-            if ( selectionSizeBeforeStartUpdate != newSelectionSize ){
-                mAudioEngine.setSelectionSize( waveIdx, newSelectionSize * (mConfig.getWaveLen() * mAudioEngine.getSampleRate() / mConfig.getNumChunks()) );
-            }
-            
-            
-        }
-        else if ( m.getVoice() == collidoscope::MIDIMessage::Voice::eControlChange ){
-            
-            switch ( m.getData_1() ){ //controller number
-                case 54: { // selection size
-                    const size_t midiVal = m.getData_2();
-                    size_t numSelectionChunks = ci::lmap<size_t>( midiVal, 0, 127, 1, mConfig.getMaxSelectionNumChunks() );
-                    
-                    mWaves[waveIdx]->getSelection().setSize( numSelectionChunks );
-                    
-                    // how many samples in one selection ?
-                    size_t selectionSize = mWaves[waveIdx]->getSelection().getSize() * (mConfig.getWaveLen() * mAudioEngine.getSampleRate() / mConfig.getNumChunks());
-                    mAudioEngine.setSelectionSize( waveIdx, selectionSize );
-                    
-                };
-                    break;
-                    
-                case 53: { // loop on off
-                    unsigned char midiVal = m.getData_2();
-                    
-                    if ( midiVal > 63 )
-                        mAudioEngine.loopOn( waveIdx );
-                    else
-                        mAudioEngine.loopOff( waveIdx );
-                };
-                    break;
-                    
-                case 52: // trigger record
-                    mAudioEngine.record( waveIdx );
-                    break;
-                    
-                case 56: { // duration
-                    const double midiVal = m.getData_2(); // 0-127
-                    const double coeff = ci::lmap<double>( midiVal, 0.0, 127, 1.0, mConfig.getMaxGrainDurationCoeff() );
-                    mAudioEngine.setGrainDurationCoeff( waveIdx, coeff );
-                    mWaves[waveIdx]->getSelection().setParticleSpread( float( coeff ) );
-                };
-                    break;
-                    
-                case 55: { // filter
-                    const double midiVal = m.getData_2(); // 0-127
-                    const double minCutoff = mConfig.getMinFilterCutoffFreq();
-                    const double maxCutoff = mConfig.getMaxFilterCutoffFreq();
-                    const double cutoff = pow( maxCutoff / 200., midiVal / 127.0 ) * minCutoff;
-                    mAudioEngine.setFilterCutoff( waveIdx, cutoff );
-                    const float alpha = ci::lmap<double>( midiVal, 0.0f, 127.0f, 0.f, 1.f );
-                    mWaves[waveIdx]->setselectionAlpha( alpha );
-                };
-                    break;
-                    
-                case 57: { // gain
-                    const double midiVal = m.getData_2(); // 0-127
-                    const float alpha = ci::lmap<double>( midiVal, 0.0f, 127.0f, 0.25f, 4.f );
-                    mAudioEngine.setGain( waveIdx, alpha );
-                };
-                    break;
-                    
-            }
+        switch ( m->mType ) {
+            case Knob::NOTEON: {
+                mAudioEngine.noteOn( waveIdx, m->mValue );
+            } break;
+                
+            case Knob::NOTEOFF: {
+                mAudioEngine.noteOff( waveIdx, m->mValue );
+            } break;
+                
+            case Knob::SELECTIONSTART: {
+                size_t startChunk = m->mValue * 149.f;
+                
+                const size_t selectionSizeBeforeStartUpdate = mWaves[waveIdx]->getSelection().getSize();
+                mWaves[waveIdx]->getSelection().setStart( startChunk );
+                
+                mAudioEngine.setSelectionStart( waveIdx, startChunk * (mConfig.getWaveLen() * mAudioEngine.getSampleRate() / mConfig.getNumChunks()) );
+                
+                const size_t newSelectionSize = mWaves[waveIdx]->getSelection().getSize();
+                if ( selectionSizeBeforeStartUpdate != newSelectionSize ){
+                    mAudioEngine.setSelectionSize( waveIdx, newSelectionSize * (mConfig.getWaveLen() * mAudioEngine.getSampleRate() / mConfig.getNumChunks()) );
+                }
+            } break;
+                
+            case Knob::SELECTIONSIZE: {
+                size_t numSelectionChunks = m->mValue * (mConfig.getMaxSelectionNumChunks() - 1) + 1;
+                mWaves[waveIdx]->getSelection().setSize( numSelectionChunks );
+                size_t selectionSize = mWaves[waveIdx]->getSelection().getSize() * (mConfig.getWaveLen() * mAudioEngine.getSampleRate() / mConfig.getNumChunks());
+                mAudioEngine.setSelectionSize( waveIdx, selectionSize );
+            } break;
+                
+            case Knob::LOOPTOGGLE: {
+                static int loopState = 0;
+                loopState = 1 - loopState;
+                if ( loopState ) {
+                    mAudioEngine.loopOn( waveIdx );
+                } else {
+                    mAudioEngine.loopOff( waveIdx );
+                }
+            } break;
+                
+            case Knob::RECORD: {
+                mAudioEngine.record( waveIdx );
+            } break;
+                
+            case Knob::DURATION: {
+                const float coeff = m->mValue * (mConfig.getMaxGrainDurationCoeff() - 1) + 1;
+                mAudioEngine.setGrainDurationCoeff( waveIdx, coeff );
+                mWaves[waveIdx]->getSelection().setParticleSpread( coeff );
+            } break;
+                
+            case Knob::FILTERFREQ: {
+                const double minCutoff = mConfig.getMinFilterCutoffFreq();
+                const double maxCutoff = mConfig.getMaxFilterCutoffFreq();
+                const double cutoff = pow( maxCutoff / 200., m->mValue ) * minCutoff;
+                mAudioEngine.setFilterCutoff( waveIdx, cutoff );
+                mWaves[waveIdx]->setselectionAlpha( m->mValue );
+            } break;
+                
+            case Knob::GAIN: {
+                const float alpha = ci::lmap<double>( m->mValue, 0.f, 1.f, 0.25f, 4.f );
+                mAudioEngine.setGain( waveIdx, alpha );
+            } break;
         }
     }
     
@@ -444,7 +412,6 @@ void CollidoscopeApp::receiveCommands()
 CollidoscopeApp::~CollidoscopeApp()
 {
     for ( int chan = 0; chan < NUM_WAVES; chan++ ){
-        /* delete the array for wave messages from audio thread */
         delete[] mRecordWaveMessageBuffers[chan];
     }
 }
