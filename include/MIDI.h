@@ -64,6 +64,8 @@ public:
 
     unsigned char getChannel() { return mChannel; }
 
+    int getPortNum() { return mPortNum; }
+
     /**
      * First byte of MIDI data 
      */ 
@@ -80,7 +82,7 @@ private:
     unsigned char mChannel;
     unsigned char mData1;
     unsigned char mData2;
-
+    int mPortNum;
     
 };
 
@@ -104,6 +106,10 @@ public:
     void checkMessages( std::vector< MIDIMessage >&  );
 
 private:
+    typedef struct {
+        int portNum;
+        MIDI* thate;
+    } MidiPortInfo;
 
     // callback passed to RtMidi library 
     static void RtMidiInCallback( double deltatime, std::vector<unsigned char> *message, void *userData );

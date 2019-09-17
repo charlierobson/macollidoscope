@@ -37,10 +37,13 @@ collidoscope::MIDI::~MIDI()
 
 void collidoscope::MIDI::RtMidiInCallback( double deltatime, std::vector<unsigned char> *message, void *userData )
 {
-    collidoscope::MIDI* midi = ((collidoscope::MIDI*)userData);
+    MidiPortInfo* midiPortInfo = reinterpret_cast<MidiPortInfo*>(userData);
+    
+    collidoscope::MIDI* midi = midiPortInfo->thate;
     std::lock_guard< std::mutex > lock( midi->mMutex );
 
     MIDIMessage msg = midi->parseRtMidiMessage( message );
+    msg.mPortNum = midiPortInfo->portNum;
 
     switch ( msg.getVoice() ){
     case MIDIMessage::Voice::ePitchBend:
@@ -82,7 +85,11 @@ void collidoscope::MIDI::setup( const Config& config )
             input->openPort( portNum, "Collidoscope Input" );
             // Here we could build a structure that contains the THIS ptr and channel number.
             // Thus we can tell from which interface the data came...
-            input->setCallback( &RtMidiInCallback, this );
+            MidiPortInfo* midiPortInfo = new MidiPortInfo;
+            midiPortInfo->portNum = portNum;
+            midiPortInfo->thate = this;
+            input->setCallback( &RtMidiInCallback, midiPortInfo );
+            cinder::app::console() << portNum << "  " << input->getPortName(portNum) << std::endl;
             mInputs.push_back( std::move(input) );
 
         }
