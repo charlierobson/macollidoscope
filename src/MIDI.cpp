@@ -119,21 +119,17 @@ Knob* collidoscope::MIDI::parseRtMidiMessage( std::vector<unsigned char> *rtMidi
     unsigned char ctlNum = (*rtMidiMessage)[1];
     
     switch ( voice ){
-        case 0x9:
-        {
+        case 0x9: {
             unsigned char velocity = (*rtMidiMessage)[2];
             if (velocity != 0)
                 knob = new Knob( Knob::NOTEON, ctlNum );
             else
                 knob = new Knob( Knob::NOTEOFF, ctlNum );
-        }
-            break;
+        } break;
             
-        case 0x8:
-        {
+        case 0x8: {
             knob = new Knob( Knob::NOTEOFF, ctlNum );
-        }
-            break;
+        } break;
             
         case 0xB:
         {
@@ -161,8 +157,7 @@ Knob* collidoscope::MIDI::parseRtMidiMessage( std::vector<unsigned char> *rtMidi
                     knob = new Knob( Knob::SELECTIONSTART, controlVal / 127.f );
                     break;
             }
-        }
-            break;
+        } break;
     }
     
     return knob;
