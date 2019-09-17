@@ -71,7 +71,7 @@ inline double calculateMidiNoteRatio( int midiNote )
 }
 
 
-AudioEngine::AudioEngine() 
+AudioEngine::AudioEngine()
 {}
 
 AudioEngine::~AudioEngine()
@@ -114,11 +114,6 @@ void AudioEngine::setup(const Config& config)
         mLowPassFilterNodes[chan] = ctx->makeNode( new FilterLowPassNode( MonitorNode::Format().channels( 1 ) ) );
         mLowPassFilterNodes[chan]->setCutoffFreq( config.getMaxFilterCutoffFreq() );
         mLowPassFilterNodes[chan]->setQ( 0.707f );
-
-//        mBandPassFilterNodes[chan] = ctx->makeNode( new FilterBandPassNode( MonitorNode::Format().channels( 1 ) ) );
-//        mBandPassFilterNodes[chan]->setCenterFreq( config.getMaxFilterCutoffFreq() );
-//        mBandPassFilterNodes[chan]->setWidth( 50 );
-//        mBandPassFilterNodes[chan]->setQ( 0.707f );
 
         // create monitor nodes for oscilloscopes
         mOutputMonitorNodes[chan] = ctx->makeNode( new MonitorNode( MonitorNode::Format().channels( 1 ) ) );
@@ -198,7 +193,7 @@ void AudioEngine::setGrainDurationCoeff( size_t waveIdx, double coeff )
 
 void AudioEngine::setFilterCutoff( size_t waveIdx, double cutoff )
 {
-    mLowPassFilterNodes[waveIdx]->setQ( cutoff * mQMul[mFilterType] );
+    mLowPassFilterNodes[waveIdx]->setCutoffFreq(cutoff);
 }
 
 void AudioEngine::setFilterType( size_t waveIdx, int type )
