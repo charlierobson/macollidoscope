@@ -196,12 +196,6 @@ void AudioEngine::setFilterCutoff( size_t waveIdx, double cutoff )
     mLowPassFilterNodes[waveIdx]->setCutoffFreq(cutoff);
 }
 
-void AudioEngine::setFilterType( size_t waveIdx, int type )
-{
-    mFilterType = type;
-    mLowPassFilterNodes[waveIdx]->setMode( mFilterTypes[type] );
-}
-
 void AudioEngine::setGain( size_t waveIdx, double cutoff )
 {
     mGainNodes[waveIdx]->setValue( cutoff );
