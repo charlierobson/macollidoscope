@@ -370,9 +370,7 @@ void CollidoscopeApp::receiveCommands()
             } break;
                 
             case Knob::LOOPTOGGLE: {
-                static int loopState = 0;
-                loopState = 1 - loopState;
-                if ( loopState ) {
+                if ( m->mValue ) {
                     mAudioEngine.loopOn( waveIdx );
                 } else {
                     mAudioEngine.loopOff( waveIdx );

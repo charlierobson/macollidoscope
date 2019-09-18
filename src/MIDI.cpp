@@ -139,7 +139,7 @@ Knob* collidoscope::MIDI::parseRtMidiMessage( std::vector<unsigned char> *rtMidi
                     knob = new Knob( Knob::RECORD );
                     break;
                 case 53:
-                    knob = new Knob( Knob::LOOPTOGGLE );
+                    knob = new Knob( Knob::LOOPTOGGLE, controlVal < 32 );
                     break;
                 case 54:
                     knob = new Knob( Knob::SELECTIONSIZE, controlVal / 127.f );
